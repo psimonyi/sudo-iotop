@@ -1,0 +1,5 @@
+# Allow users in the wheel group to run iotop with no password.
+# Note that iotop essentially lets you ionice too.
+
+ALL ALL = NOPASSWD: /usr/sbin/iotop
+
