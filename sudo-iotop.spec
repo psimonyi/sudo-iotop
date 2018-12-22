@@ -1,6 +1,6 @@
 Name:           sudo-iotop
 Version:        2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Allow administrators to run iotop without a sudo password
 
 License:        Public Domain
@@ -9,6 +9,7 @@ Source0:        iotop.sudoers
 Source1:        sudo-iotop.sh
 
 BuildArch:      noarch
+Requires:       sudo
 Requires:       iotop
 # setup owns /etc/profile.d
 Requires:       setup
@@ -39,6 +40,8 @@ cp -p sudo-iotop.sh %{buildroot}%{_sysconfdir}/profile.d/sudo-iotop.sh
 %config(noreplace) %{_sysconfdir}/profile.d/sudo-iotop.sh
 
 %changelog
+* Fri Dec 21 2018 Peter Simonyi <pts@petersimonyi.ca> - 2-2
+- Requires sudo
 * Wed May 11 2016 Peter Simonyi <pts@petersimonyi.ca> - 2
 - Restrict the sudo permission to the wheel and iotop groups
 * Wed Jan 27 2016 Peter Simonyi <pts@petersimonyi.ca> - 1
